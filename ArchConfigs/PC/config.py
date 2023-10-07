@@ -92,6 +92,7 @@ keys = [
              'lock': '/home/Jlisowskyy/.local/bin/lock.sh',
               'shut': 'shutdown now',
               'reb': 'reboot',
+                'sus': 'systemctl suspend',
             },
             dmenu_prompt=">",
             dmenu_ignorecase=True,
@@ -99,7 +100,6 @@ keys = [
 ]
 
 groups = [Group(i) for i in "123456789"]
-groups[2] = Group("3", spawn="chromium")
 
 for i in groups:
     keys.extend(
@@ -202,7 +202,7 @@ screens = [
 			widget.Sep(linewidth=4),
 			widget.CapsNumLockIndicator(),
 			widget.Sep(linewidth=4),
-			widget.PulseVolume(volume_app="pavucontrol", fmt="Vol: {}"),
+			widget.Volume(volume_app="pavucontrol", fmt="Vol: {}"),
 		],
 		24,
 	),
