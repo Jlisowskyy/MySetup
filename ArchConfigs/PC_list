@@ -10,3 +10,4 @@ echo ${HOME}/.bashrc \
     ${HOME}/.config/qtile/config.py \
     ${HOME}/.local/bin/lock.sh \
     ${HOME}/.config/autorandr/default \
+    ${HOME}/Zajecia/plan.png \

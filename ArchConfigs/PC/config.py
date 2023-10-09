@@ -25,7 +25,7 @@
 # SOFTWARE.
 
 from libqtile import bar, layout, widget
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, Match, Screen, ScratchPad, DropDown
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 from libqtile import extension
@@ -125,6 +125,32 @@ for i in groups:
         ]
     )
 
+# // ------------------------------
+# // ScratchPads
+# // ------------------------------
+
+groups.append(ScratchPad('scratchpad',[
+    DropDown('mixer', 'pavucontrol'),
+    DropDown('bitwarden', 'bitwarden-desktop'),
+    DropDown('nnn', 'alacritty -e nnn -d -C', x=0.3, y=0.15, width=0.4, height=0.7),
+    DropDown('term', 'alacritty'),
+    DropDown('plan', 'feh /home/Jlisowskyy/Zajecia/plan.png', x=0.35, y=0.2, width=0.3, height=0.6),
+]))
+
+keys.extend([
+    Key(["control"], "1", lazy.group['scratchpad'].dropdown_toggle('term')),
+    Key(["control"], "2", lazy.group['scratchpad'].dropdown_toggle('plan')),
+    Key(["control"], "3", lazy.group['scratchpad'].dropdown_toggle('nnn')),
+    Key(["control"], "4", lazy.group['scratchpad'].dropdown_toggle('bitwarden')),
+    Key(["control"], "5", lazy.group['scratchpad'].dropdown_toggle('mixer')),
+])
+
+# // ------------------------------
+# // layouts
+# // ------------------------------
+
+
+
 layouts = [
     layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
     layout.Max(),
@@ -153,7 +179,6 @@ screens = [
                 widget.GroupBox(),
                 widget.Prompt(),
                 widget.WindowName(),
-
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
             ],
             32,
@@ -202,7 +227,7 @@ screens = [
 			widget.Sep(linewidth=4),
 			widget.CapsNumLockIndicator(),
 			widget.Sep(linewidth=4),
-			widget.Volume(volume_app="pavucontrol", fmt="Vol: {}"),
+			widget.PulseVolume(volume_app="pavucontrol", fmt="Vol: {}"),
 		],
 		24,
 	),
