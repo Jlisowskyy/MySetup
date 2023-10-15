@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $1 = "-h" ] || [ $1 = "--help" ]; then
+if [[ $1 == "-h" ]] || [[ $1 == "--help" ]] ||[[ -z $1 ]]; then
     echo "Expected usage:"
     echo "          cp_conf.bash [ output_dir_name ]"
     echo "Copies desired files to ${PWD}/output_dir_name/*"
@@ -10,6 +10,7 @@ else
     DEST_DIR="${PWD}/${1}"
     BACKUP_DIR="${PWD}/.bckp"
 
+    pacman -Q > "${DEST_DIR}/package_list"
     mkdir $DEST_DIR 2>/dev/null
 
     rm -Rf ${BACKUP_DIR} 2>/dev/null
