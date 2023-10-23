@@ -32,3 +32,5 @@ function _dotnet_bash_complete()
 }
 
 complete -f -F _dotnet_bash_complete dotnet
+bind 'TAB:menu-complete'
+bind 'set show-all-if-ambiguous on'
