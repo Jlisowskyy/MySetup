@@ -1,0 +1,13 @@
+#!/bin/sh
+
+echo ${HOME}/.bashrc \
+    ${HOME}/.profile \
+    ${HOME}/.volup.sh \
+    ${HOME}/.alBinds \
+    ${HOME}/.LESS_TERMCAP \
+    ${HOME}/.xbindkeysrc \
+    ${HOME}/.config/alacritty/alacritty.yml \
+    ${HOME}/.config/qtile/config.py \
+    ${HOME}/.local/bin/lock.sh \
+    ${HOME}/.config/autorandr/default \
+    ${HOME}/Zajecia/plan.png \

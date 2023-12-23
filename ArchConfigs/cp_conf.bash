@@ -10,8 +10,8 @@ else
     DEST_DIR="${PWD}/${1}"
     BACKUP_DIR="${PWD}/.bckp"
 
-    pacman -Q > "${DEST_DIR}/package_list"
     mkdir $DEST_DIR 2>/dev/null
+    pacman -Q > "${DEST_DIR}/package_list"
 
     rm -Rf ${BACKUP_DIR} 2>/dev/null
     cp -R ${DEST_DIR} ${BACKUP_DIR} 2>/dev/null
